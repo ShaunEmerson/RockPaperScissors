@@ -14,12 +14,6 @@ function getComputerChoice() {
 
 // STEP 2
 
-// The Odin Project's instructions:
-// Write a function that plays a single round of Rock Paper Scissors. 
-// The function should take two parameters - the playerSelection and computerSelection
-// and then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock"
-// Make your function’s playerSelection parameter case-insensitive (so users can input rock, ROCK, RocK or any other variation).
-
 
 // playerSelection is entered into a prompt and reduced toLowerCase for comparison with computerSelection.
 // computerSelection is equal to the result of getComputerChoice function.
@@ -43,5 +37,4 @@ function playRound() {
     }
 }
 
-alert(playRound())
-;
+alert(playRound());
