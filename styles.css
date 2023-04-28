@@ -1,0 +1,87 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100vh;
+    background-color: black;
+}
+
+
+div.main {
+    width: 800px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+span {
+    display: flex;
+    width: 100vw;
+    align-items: flex-end;
+    justify-content: center;
+    font-size:xx-large;
+    font-weight: bolder;
+    padding-bottom: 35px;
+    color: white;
+}
+
+button {
+    width: 200px;
+    height: 200px;
+    flex: none;
+    border: 1px solid blue;
+    border-radius: 5px;
+    padding-top: 175px;
+    padding-left: 100px;
+    font-size: large;
+    font-weight: bold;
+    color: white;
+}
+
+#rock {
+    background-image: url('images/rock-dark.png');
+    background-size: 200px;
+}
+
+#rock:hover {
+    background-image: url('images/rock.png');
+    opacity: 0.85;
+    background-size: 205px;
+    width: 205px;
+    color: black;
+    border: 3px solid blue;
+}
+
+#paper {
+    background-image: url('images/paper-dark.png');
+    background-size: 200px;
+}
+
+#paper:hover {
+    background-image: url('images/paper.png');
+    opacity: 0.85;
+    background-size: 205px;
+    color: black;
+    border: 3px solid blue;
+}
+
+#scissors {
+    background-image: url('images/scissors-dark.png');
+    background-size: 200px;
+}
+
+#scissors:hover {
+    background-image: url('images/scissors.png');
+    opacity: 0.85;
+    background-size: 205px;
+    color: black;
+    border: 3px solid blue;
+}
+
+.img {
+    -webkit-filter:invert(100%);
+     filter:progid:DXImageTransform.Microsoft.BasicImage(invert='1');
+}
