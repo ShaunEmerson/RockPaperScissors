@@ -1,38 +1,131 @@
-body {
+body, h1, #score, #round, .scoreboard, .visible, .options, .players  {
     display: flex;
+}
+
+body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
     height: 100vh;
     background-color: black;
+    font-family: 'Bruno Ace SC', sans-serif;
 }
 
+.scoreboard {
+    width: 100vw;
+    height: auto;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
 
-div.main {
+#round {
+    width: 600px;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+#score {
+    flex-direction: column;
+    width: 600px;
+    height: 425px;
+    color: white;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#scorecard {
+    width: 600;
+    margin-bottom: 15px;
+}
+
+.players {
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+#player, #computer, #player-score, #computer-score {
+    display: inherit;
+    width: 300px;
+    height: 100%;
+    align-items: flex-start;
+}
+
+.p-color {
+    color: white;
+    text-shadow: 5px 5px 7px blue, -5px -5px 7px blue, 5px -5px 7px blue, -5px 5px 7px blue;
+}
+
+.c-color {
+    color:white;
+    text-shadow: 5px 5px 7px red, -5px -5px 7px red, 5px -5px 7px red, -5px 5px 7px red;
+}
+
+#player-score, #computer-score {
+    font-size: 5rem;
+}
+
+.visible {
+    flex-direction: column;
+    align-items: center;
+    width: 425px;
+    height: 425px;
+    color: white;
+    justify-content: center;
+}
+
+.visible img {
+    width: 325px;
+    height: 325px;
+    border-radius: 15px;
+}
+
+.visible h2 {
+    color: bl;
+}
+
+span {
+    font-size: large;
+    font-weight: bold;
+    justify-content: center;
+}
+
+.options {
     width: 800px;
     height: auto;
-    display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding-bottom: 20px;
 }
 
-span {
-    display: flex;
-    width: 100vw;
+h1 {
+
     align-items: flex-end;
     justify-content: center;
     font-size:xx-large;
     font-weight: bolder;
-    padding-bottom: 35px;
     color: white;
+    margin-top: 11.440px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    width: auto;
+    height: auto;
+}
+
+h3 {
+    font-size: 2em;
+    font-weight: bolder;
 }
 
 button {
     width: 200px;
     height: 200px;
     flex: none;
-    border: 1px solid blue;
+    border: 1px solid black;
     border-radius: 5px;
     padding-top: 175px;
     padding-left: 100px;
@@ -41,47 +134,39 @@ button {
     color: white;
 }
 
+button:hover {
+    opacity: 0.85;
+    color: black;
+    border: 2px solid blue;
+    box-shadow: 0 0 5rem blue, inset 0 0 1rem blue;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+#rock, #paper, #scissors {
+    background-size: 200px;
+}
+
 #rock {
     background-image: url('images/rock-dark.png');
-    background-size: 200px;
 }
 
 #rock:hover {
     background-image: url('images/rock.png');
-    opacity: 0.85;
-    background-size: 205px;
-    width: 205px;
-    color: black;
-    border: 3px solid blue;
 }
 
 #paper {
     background-image: url('images/paper-dark.png');
-    background-size: 200px;
 }
 
 #paper:hover {
     background-image: url('images/paper.png');
-    opacity: 0.85;
-    background-size: 205px;
-    color: black;
-    border: 3px solid blue;
 }
 
 #scissors {
     background-image: url('images/scissors-dark.png');
-    background-size: 200px;
 }
 
 #scissors:hover {
     background-image: url('images/scissors.png');
-    opacity: 0.85;
-    background-size: 205px;
-    color: black;
-    border: 3px solid blue;
-}
-
-.img {
-    -webkit-filter:invert(100%);
-     filter:progid:DXImageTransform.Microsoft.BasicImage(invert='1');
 }

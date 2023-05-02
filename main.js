@@ -1,66 +1,86 @@
+const choices = ["rock", "paper", "scissors"];
+let computerSelection = "";
+let playerSelection = "";
+let playerScore = 0;
+let computerScore = 0;
+let round = 1;
+
+const btns = document.querySelectorAll('button');
+btns.forEach((button) => {
+    button.addEventListener('click', () => {
+        playerSelection = button.id;
+        pImage();
+        computerSelection = getComputerChoice(); 
+        playRound(playerSelection, computerSelection);
+    });
+});
+
+const pImage = function () {
+    document.querySelector('#p-selection').style="border: 3px solid blue; box-shadow: 0 0 5rem blue, inset 0 0 1rem blue;";
+    if (playerSelection === choices[0]) {
+        document.querySelector('#p-selection').src="images/rock.png";
+    } else if (playerSelection === choices[1]) {
+        document.querySelector('#p-selection').src="images/paper.png";
+    } else if (playerSelection === choices[2]) {
+        document.querySelector('#p-selection').src="images/scissors.png";
+    }
+    document.getElementById('narrative').textContent="COMPUTER TURN: WAITING ON COMPUTER...";    
+}
+
+function getComputerChoice() {
+    let selection = choices[Math.floor(Math.random() * choices.length)];
+    setTimeout( function() {
+        document.querySelector('#c-selection').style="border: 3px solid red; box-shadow: 0 0 5rem red, inset 0 0 1rem red;";
+        if (selection === choices[0]) {
+        document.querySelector('#c-selection').src="images/rock.png";
+        } else if (selection === choices[1]) {
+        document.querySelector('#c-selection').src="images/paper.png";
+        } else if (selection === choices[2]) {
+        document.querySelector('#c-selection').src="images/scissors.png";
+        }
+    }, 2000);  
+    return selection;
+}
+
+function displayScore() {
+    setTimeout( function() {
+        document.getElementById('player-score' ).textContent = playerScore;
+        },2250);
+}
+
+function playRound(arg1, arg2) {
+// Evaluates choices and displays a message declaring a winner, loser, or tie, and updates the scores and jumps to the next round
+    document.getElementById('round').textContent = "Round: " + round;
+    if (playerSelection === computerSelection) {
+        setTimeout( function() {
+        document.getElementById('narrative').textContent=`IT'S A TIE. YOU BOTH CHOSE ${playerSelection}.`;
+        }, 2250);
+    } else if (playerSelection === choices[0] && computerSelection === choices[1] ||
+        playerSelection === choices[1] && computerSelection === choices[2] || 
+        playerSelection === choices[2] && computerSelection === choices[0]) {
+        computerScore += 1;
+        setTimeout( function() {
+        document.getElementById('computer-score' ).textContent = computerScore;
+        document.getElementById('narrative').textContent=`YOU LOSE! ${computerSelection} BEATS ${playerSelection}!`;
+        }, 2250);
+    } else {
+        playerScore += 1;
+        displayScore();
+        setTimeout( function() {
+        document.getElementById('narrative').textContent=`YOU WIN! ${playerSelection} BEATS ${computerSelection}!`;
+        }, 2250);
+    }
+    round++;
+}
+
+
 
 // Function that plays multiple rounds of Rock Paper Scissors
-function game(){
-
-// List of variables used at game() function level
-    const choices = ["rock", "paper", "scissors"];
-    let computerSelection;
-    let playerSelection;
-    let playerScore = 0;
-    let computerScore = 0;
-    let round = 1;
-
-// Function randomly selects "rock", "paper", or "scissors" for computer to play against player
-    function getComputerChoice() {
-        let selection = choices[Math.floor(Math.random() * choices.length)];
-        return selection;
-    }
-
-// Creates a basic visual aspect to follow in the console
+/*function game(){
     console.log("The best of 5 rounds wins!");
     console.log("");
-
-// Iterates through the rounds until the game has been played five times
     for (i = 0; i < 5; i++){
-
-// Function that plays a round of Rock Paper Scissors
-        function playRound(playerSelection, computerSelection) {
-            console.log("Round: " + round);
-            computerSelection = getComputerChoice();
-            playerSelection = prompt(`Please enter ${choices[0]}, ${choices[1]}, or ${choices[2]}.`, "rock").toLowerCase();
-
-// Validates the player's choice to ensure it is one of the correct options
-            if (playerSelection === "rock" ||
-                playerSelection === "paper" ||
-                playerSelection === "scissors") {
-                console.log(`You chose ${playerSelection}, the computer chose ${computerSelection}.`);
-            } else {
-                playerSelection = prompt(`You made an invalid choice. Please enter ${choices[0]}, ${choices[1]}, or ${choices[2]}.`, "rock")
-            }
-
-// Evaluates choices and displays a message declaring a winner, loser, or tie, and updates the scores and jumps to the next round
-            if (playerSelection === computerSelection) {
-            console.log(`It's a tie, you chose the same as the computer.`)
-            } else if (playerSelection === choices[0] && computerSelection === choices[1] ||
-                playerSelection === choices[1] && computerSelection === choices[2] || 
-                playerSelection === choices[2] && computerSelection === choices[0]) {
-                computerScore += 1;
-                console.log(`You lose, ${computerSelection} beats ${playerSelection}!`);
-            } else {
-                playerScore += 1;
-                console.log(`You win, ${playerSelection} beats ${computerSelection}!`);
-            }
-            round++;
-        }
-
-// Calls the round to begin
         playRound();
-
-// Displays the score of the previous round
-        console.log(`Score          Player: ${playerScore}      Computer: ${computerScore}`);
-        console.log("")
-    }
-
 // Evaluates the player's score against the computer's score and declares the winner of the game
     if (playerScore === computerScore) {
         if (playerScore === 0 && computerScore === 0) {
@@ -83,7 +103,7 @@ function game(){
             console.log(`You lose! You've won only ${playerScore} rounds, while the computer has won ${computerScore} rounds.`)
         }
     }
-}
+}*/
 
 // Calls the game to play
-game();
+// game();

@@ -1,11 +1,52 @@
 <!DOCTYPE html>
-<html lang="english">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://fonts.cdnfonts.com/css/bruno-ace-sc" rel="stylesheet">       
         <title>Rock Paper Scissors</title>
-        <script src="main.js"></script>
+        <script src="main.js" defer></script>
     </head>
     <body>
 
+        <div class="scoreboard">
+
+            <div class="visible">
+                <h2 class="p-color">Player Selection</h2>
+                <img id="p-selection" src='data:image/png;base64,R0lGODlhFAAUAIAAAP///wAAACH5BAEAAAAALAAAAAAUABQAAAIRhI+py+0Po5y02ouz3rz7rxUAOw=='>
+                <span id="player-choice"></span>
+            </div>
+
+            <div id="score">
+                <h3 id="round">Round: 1</h3>
+                <span id="scorecard">Score</span>
+                
+                <div class="players">
+                    <span id="player" class="p-color">Player:</span>
+                    <span id="computer" class="c-color">Computer:</span>
+                </div>
+
+                <div id="player-scores" class="players">
+                    <span id="player-score" class="p-color">0</span>
+                    <span id="computer-score" class="c-color">0</span>
+                </div>
+            </div>
+
+            <div class="visible">
+                <h2 class="c-color">Computer Selection</h2>
+                <img id="c-selection" src='data:image/png;base64,R0lGODlhFAAUAIAAAP///wAAACH5BAEAAAAALAAAAAAUABQAAAIRhI+py+0Po5y02ouz3rz7rxUAOw=='>
+                <span id="computer-choice"></span>
+            </div>
+        </div>
+
+        <h1 id="narrative">YOUR TURN: SELECT YOUR WEAPON!</h1>
+        <div class="options">
+            <button id="rock" class="buttons">Rock</button>
+            <button id="paper" class="buttons">Paper</button>
+            <button id="scissors" class="buttons">Scissors</button>
+        </div>
+
     </body>
-</html>
+</html>     
