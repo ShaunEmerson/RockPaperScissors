@@ -96,7 +96,7 @@ span {
     width: 800px;
     height: auto;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     padding-bottom: 20px;
 }
 
@@ -117,11 +117,11 @@ h2 {
 }
 
 h3 {
-    font-size: 2em;
+    font-size: 25px;
     font-weight: bolder;
 }
 
-button {
+.buttons {
     width: 200px;
     height: 200px;
     flex: none;
@@ -134,12 +134,36 @@ button {
     color: white;
 }
 
-button:hover {
+.buttons:hover {
     opacity: 0.85;
     color: black;
     border: 2px solid blue;
     box-shadow: 0 0 5rem blue, inset 0 0 1rem blue;
     font-size: larger;
+    font-weight: bolder;
+}
+
+#start {
+    width: 200px;
+    height: 200px;
+    flex: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 42px;
+    font-weight: bolder;
+    color: white;
+    background-color: black;
+    padding-top: 0px;
+    padding-left: 0px;
+}
+
+#start:hover {
+    opacity: 0.85;
+    color: black;
+    background-color: white;
+    border: 2px solid blue;
+    box-shadow: 0 0 5rem blue, inset 0 0 1rem blue;
+    font-size: 52px;
     font-weight: bolder;
 }
 

@@ -12,6 +12,10 @@ btns.forEach((button) => {
         pImage();
         computerSelection = getComputerChoice(); 
         playRound(playerSelection, computerSelection);
+        if (round === 6) {
+            round = " "
+            endGame();
+        }
     });
 });
 
@@ -60,17 +64,53 @@ function playRound(arg1, arg2) {
         playerSelection === choices[2] && computerSelection === choices[0]) {
         computerScore += 1;
         setTimeout( function() {
-        document.getElementById('computer-score' ).textContent = computerScore;
-        document.getElementById('narrative').textContent=`YOU LOSE! ${computerSelection} BEATS ${playerSelection}!`;
+            document.getElementById('computer-score' ).textContent = computerScore;
+            document.getElementById('narrative').textContent=`YOU LOSE! ${computerSelection} BEATS ${playerSelection}!`;
         }, 2250);
     } else {
         playerScore += 1;
         displayScore();
         setTimeout( function() {
-        document.getElementById('narrative').textContent=`YOU WIN! ${playerSelection} BEATS ${computerSelection}!`;
+            document.getElementById('narrative').textContent=`YOU WIN! ${playerSelection} BEATS ${computerSelection}!`;
         }, 2250);
     }
     round++;
+}
+
+function change_paper() {
+    document.querySelector('#paper').id="start";
+    document.querySelector('#start').textContent="START";
+}
+
+function remove_buttons() {
+    let removebtns = document.getElementById('opt');
+    let remove_rock = document.getElementById('rock');
+    let remove_scissors = document.getElementById('scissors');
+    change_paper();
+    removebtns.removeChild(remove_rock);
+    removebtns.removeChild(remove_scissors);
+    reset()
+}
+
+function endGame() {
+    setTimeout( function() {
+        if (playerScore === computerScore) {
+            document.getElementById('narrative').textContent="IT'S A TIE!";
+        } else if (playerScore > computerScore) {
+            document.getElementById('narrative').textContent="YOU WIN! YOU SCORED THE BEST OUT OF 5 ROUNDS!";
+        } else {
+            document.getElementById('narrative').textContent="YOU LOSE! COMPUTER SCORED THE BEST OUT OF 5 ROUNDS";
+        }
+        document.getElementById('round').textContent="CLICK START FOR NEW\ GAME";
+        remove_buttons();
+    }, 3250);
+}
+
+function reset() {
+    const startNew = document.querySelector('#start');
+    startNew.addEventListener('click', () => {
+           window.location.reload();
+    })
 }
 
 
